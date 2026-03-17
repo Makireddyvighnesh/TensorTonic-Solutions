@@ -10,11 +10,13 @@ def train_logistic_regression(X, y, lr=0.1, steps=1000):
     Return (w, b).
     """
     # Write code here
+    # Convert list to numpy array
     X = np.array(X, dtype=float)
     y = np.array(y, dtype=float)
     
     n_samples, n_features = X.shape
 
+    # Initialize
     W = np.zeros(n_features)
     b = 0
 
@@ -27,6 +29,7 @@ def train_logistic_regression(X, y, lr=0.1, steps=1000):
         dw = (1/n_samples) * np.dot(X.T , (y_pred - y))
         db = (1/n_samples) * np.sum(y_pred-y)
 
+        # Update
         W -= lr * dw
         b -= lr * db
 
